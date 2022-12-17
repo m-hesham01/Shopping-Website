@@ -1,12 +1,8 @@
-body{
-    margin: 0;
-    font-family: Arial Black, Arial, Helvetica, sans-serif;
-}
-
 .nav{
     background-color: #474747;
     width: 100%;
     height: 75px;
+    font-family: Arial Black, Arial, Helvetica, sans-serif;
 }
 
 
@@ -47,12 +43,13 @@ body{
 .nav .search input[type="text"]{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
-    color: black;
+    color: #474747;
     background-color: white;
     padding: 1%;
     width : 85%;
     height: 100%;
     vertical-align : middle;
+    border-radius: 5px;
 }
 .nav .search button{
     font-family: Arial Black, Arial, Helvetica, sans-serif;
@@ -63,6 +60,7 @@ body{
     width : 10%;
     height: 100%;
     vertical-align : middle;
+    border-radius: 5px;
 }
 .nav .search button:hover{
     background-color: #949494;
@@ -70,10 +68,5 @@ body{
 .nav .search img{
     width : 90%;
     height: 90%;
-}
-
-.nav .filler{
-    width : 5%;
-    height: 100%;
 }
 

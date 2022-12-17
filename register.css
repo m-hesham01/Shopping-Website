@@ -1,0 +1,97 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('bg.png');
+}
+
+.regBox{
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    width: 600px;
+    height: max-content;
+    border-radius: 25px;
+    border: 2px #474747;
+    border-style: ridge;
+}
+
+.regBox h1{
+    text-align: center;
+    font-size: 16px;
+    font-family: Arial Black, Arial, Helvetica, sans-serif;
+    color: #474747;
+}
+
+.regBox p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #474747;
+    font-size: 10px;
+    text-align: center;
+}
+
+.formField{
+    font-family: Arial Black, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #474747;
+    width: 150px;
+    vertical-align : middle;
+    padding-left: 25px;
+}
+
+.formInput{
+    width: 400px;
+    vertical-align : middle;
+}
+
+.formButton{
+    padding-left: 265px;
+}
+
+.regBox input[type=text], .regBox input[type=email], .regBox input[type=password], .regBox input[type=number]{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #474747;
+    background-color: white;
+    padding: 1%;
+    vertical-align : middle;
+    border-radius: 5px;
+    margin:auto;
+    width: 90%;
+}
+
+.regBox input[type=submit]{
+    font-family: Arial Black, Arial, Helvetica, sans-serif;
+    background-color: rgb(79, 166, 79);
+    cursor: pointer;
+    font-size: 12px;
+    color: white;
+    width : 70px;
+    height: 25px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.regBox input[type=submit]:hover{
+    background-color: rgb(55, 116, 55);
+}
+
+.regBox ul{
+    list-style-type: none;
+    text-align: center;
+}
+
+.regBox li{
+    display: inline;
+}
+
+.regBox a{
+    color: rgb(192, 20, 20);
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+    padding: 10px;
+}
+
+
+
