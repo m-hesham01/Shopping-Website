@@ -39,3 +39,8 @@ body{
     border-right: 1px dotted #474747;
     border-bottom: 1px dotted #474747;
 }
+
+.prodImg{
+    width : 75px;
+    height: 75px;
+}
