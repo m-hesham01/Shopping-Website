@@ -18,7 +18,7 @@
             <table class="nav">
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
-                    <td class = "element"><a href="homepage.html">Home</a></td>
+                    <td class = "element"><a href="homepage.php">Home</a></td>
                     <td class = "element"><a href="#markets">Markets</a></td>
                     <td class = "element"><a href="login.html">Profile</a></td>
                     <td class = "search">
@@ -30,37 +30,17 @@
                 </tr>
             </table>
         </div>
-        <style>
-            logo{
-            font-family : Arial Black;
-            font-size : 18px;
-            color: red;
-            }
 
-            ul{
-                background-color: grey;
-                list-style-type: none;
-                margin: 0;
-                padding : 0;
-            }
-            li{
-                display: inline;
-            }
-        </style>
-    </head>
-
-
-        <div>
-            <h1>homepage</h1>
-            <?php 
-            // echo $user_data['Image']; 
-            if($user_data != false){
-                echo " <img src='./image/{$user_data["Image"]}' ";
-            }else{ //not logged in
-                echo " <img src='./image/user.png' ";
-            }
-            
-            ?>
+        <div class="mainBox">
+            <h1>View our most popular products</h1>
+            <div class="mainGrid">
+               <product>a</product>
+               <product>b</product>
+               <product>c</product>
+               <product>d</product>
+               <product>example</product>
+               <product>test</product>
+            </div>
         </div>
     </body>
 </html>

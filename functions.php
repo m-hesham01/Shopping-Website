@@ -11,8 +11,6 @@ function check_login($con){
             // return false;
         }
         
-    } else {
-        return false;
     }
 }
 ?>
