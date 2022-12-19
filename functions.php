@@ -10,10 +10,7 @@ function check_login($con){
         }
         
     }else{
-           //redirect to login
-    //TODO deafult image 
-    header("Location:login.php");
-    die;
+        return false;
     }   
 }
  
