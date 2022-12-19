@@ -43,12 +43,15 @@
         <div class="mainBox">
             <h1>View our most popular products</h1>
             <div class="mainGrid">
-                <product>a</product>
-                <product>b</product>
-                <product>c</product>
-                <product>d</product>
-                <product>example</product>
-                <product>test</product>
+                <?php
+                $query = "SELECT * FROM product";
+                $q = mysqli_query($con,$query);
+                while($row = mysqli_fetch_assoc($q)){
+                    echo "<product>";
+                    echo $row;
+                    echo "</product>";
+                }
+                ?>
             </div>
         </div>
     </body>
