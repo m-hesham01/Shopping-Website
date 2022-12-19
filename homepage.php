@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    include ("connection.php");
+    include ("functions.php");
+    $user_data = check_login($con);
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,9 +29,40 @@
                 </tr>
             </table>
         </div>
+        <style>
+            logo{
+            font-family : Arial Black;
+            font-size : 18px;
+            color: red;
+            }
+
+            ul{
+                background-color: grey;
+                list-style-type: none;
+                margin: 0;
+                padding : 0;
+            }
+            li{
+                display: inline;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <ul>
+            <li> <logo>BUY BUY</logo> </li>
+            <li> <a href = "signup.php"> Sign-Up</li>
+            <li> <a href = "login.php"> Sign-In</li>
+            <li> <a href = "profile.html"> Profile</li>
+            <li> <a href = "markets.html"> Markets</li>
+        </ul>
+    </body>
+</html>
 
         <div>
             <h1>homepage</h1>
+            <?php echo $user_data['Username']; ?>
         </div>
     </body>
 </html>
