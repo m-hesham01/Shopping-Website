@@ -10,6 +10,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="homepage.css">
     </head>
 
     <body class="navBody">
@@ -48,21 +49,18 @@
         </style>
     </head>
 
-    <body>
-        
-        <ul>
-            <li> <logo>BUY BUY</logo> </li>
-            <li> <a href = "signup.php"> Sign-Up</li>
-            <li> <a href = "login.php"> Sign-In</li>
-            <li> <a href = "profile.html"> Profile</li>
-            <li> <a href = "markets.html"> Markets</li>
-        </ul>
-    </body>
-</html>
 
         <div>
             <h1>homepage</h1>
-            <?php echo $user_data['Username']; ?>
+            <?php 
+            // echo $user_data['Image']; 
+            if($user_data != false){
+                echo " <img src='./image/{$user_data["Image"]}' ";
+            }else{ //not logged in
+                echo " <img src='./image/user.png' ";
+            }
+            
+            ?>
         </div>
     </body>
 </html>

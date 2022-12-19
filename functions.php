@@ -1,4 +1,5 @@
 <?php
+$flag = false;
 function check_login($con){
     if(isset($_SESSION['UID'])){
         $id = $_SESSION['UID'];
@@ -7,14 +8,11 @@ function check_login($con){
         if($result && mysqli_num_rows($result) > 0){
             $user_data = mysqli_fetch_assoc($result);
             return $user_data;
+            // return false;
         }
         
-    }else{
-           //redirect to login
-    //TODO deafult image 
-    header("Location:login.php");
-    die;
-    }   
+    } else {
+        return false;
+    }
 }
- 
 ?>
