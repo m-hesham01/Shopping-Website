@@ -12,6 +12,7 @@ include("functions.php");
         $userData = mysqli_fetch_array($result);
         if($userData['Password'] == $password){
             $_SESSION['UID'] = $userData['UID'];
+            unset($_SESSION['MID']);
             header("Location:homepage.php");
             die;
         }
