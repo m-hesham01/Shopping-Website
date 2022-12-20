@@ -42,33 +42,18 @@
         </div>
 
         <div class="mainBox">
-            <h1>View our most popular products</h1>
+            <h1>View our most popular brands</h1>
             <div class="mainGrid">
                 <?php
-                $query = "SELECT * FROM product";
+                $query = "SELECT Brand  FROM product";
                 $q = mysqli_query($con,$query);
                 while($row = mysqli_fetch_assoc($q)){
                     echo "<product>";
-                    echo "<img class='prodImg' src='./Image/{$row["Image"]}' ";
-                    echo "<br>";
-                    echo "<prodName>";
-                    echo $row['Name'];
-                    echo "</prodName>";
-                    echo "<br>";
-                    echo "<prodPrice>";
-                    echo "EGP";
-                    echo $row['Price'];
-                    echo "</prodPrice>";
-                    echo "<br>";
-                    echo "<prodDesc>";
-                    echo $row['BriefDescription'];
-                    echo "</prodDesc>";
-                    echo "<br>";
+                    echo $row['Brand'];
                     echo "</product>";
                 }
                 ?>
             </div>
         </div>
-
     </body>
 </html>

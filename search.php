@@ -45,30 +45,17 @@
             <h1>View our most popular products</h1>
             <div class="mainGrid">
                 <?php
-                $query = "SELECT * FROM product";
+                $search = $_REQUEST['search'];
+                $query = "SELECT * FROM product WHERE product.Name LIKE '%$search%'";
                 $q = mysqli_query($con,$query);
                 while($row = mysqli_fetch_assoc($q)){
                     echo "<product>";
-                    echo "<img class='prodImg' src='./Image/{$row["Image"]}' ";
-                    echo "<br>";
-                    echo "<prodName>";
                     echo $row['Name'];
-                    echo "</prodName>";
-                    echo "<br>";
-                    echo "<prodPrice>";
-                    echo "EGP";
-                    echo $row['Price'];
-                    echo "</prodPrice>";
-                    echo "<br>";
-                    echo "<prodDesc>";
-                    echo $row['BriefDescription'];
-                    echo "</prodDesc>";
-                    echo "<br>";
+                    echo "<img class='prodImg' src='./image/{$row["Image"]}' ";
                     echo "</product>";
                 }
                 ?>
             </div>
         </div>
-
     </body>
 </html>

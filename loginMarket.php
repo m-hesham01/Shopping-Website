@@ -6,12 +6,12 @@ include("functions.php");
     $email = $_REQUEST['email'];
     $password = $_REQUEST['password'];
 
-    $query = "SELECT * FROM market WHERE market.Email = '$email'";
+    $query = "SELECT * FROM Market WHERE market.Email = '$email'";
     $result = mysqli_query($con, $query);
     if($result &&mysqli_num_rows($result) > 0){
-        $userData = mysqli_fetch_array($result);
-        if($userData['Password'] == $password){
-            $_SESSION['UID'] = $userData['UID'];
+        $marketData = mysqli_fetch_array($result);
+        if($marketData['Password'] == $password){
+            $_SESSION['MID'] = $marketData['MID'];
             header("Location:homepage.php");
             die;
         }
