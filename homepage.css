@@ -21,12 +21,18 @@ body{
     color: #474747;
 }
 
-.mainBox h4{
-    font-size: 12px;
+prodName{
+    font-size: 14px;
+    text-align: center;
 }
 
-.mainBox h5{
-    font-size: 10px;
+prodPrice{
+    font-size: 14px;
+    color: rgb(192, 20, 20);
+}
+
+prodDesc{
+    font-size: 12px;
 }
 
 .mainGrid{
@@ -38,6 +44,14 @@ body{
 .mainGrid product{
     border-right: 1px dotted #474747;
     border-bottom: 1px dotted #474747;
+    text-align: center;
+    align-items: center;
+}
+
+.prodImg{
+    width: 90%;
+    max-height: 200px;
+    object-fit: contain;
 }
 
 .prodImg{
