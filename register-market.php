@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -82,7 +85,16 @@
                     </tr>
                 </table>
             </form>
-
+            <p>
+                <?php 
+                    if( isset($_SESSION['Error']) ) {
+                        echo $_SESSION['Error'];
+                        unset($_SESSION['Error']);
+                        echo '<br>';
+                        echo "<a href='loginMarket.html'>Login</a>";            
+                    }
+                ?>
+            </p>
             <p>Fields marked with * are required</p>
         </div>
     </body>

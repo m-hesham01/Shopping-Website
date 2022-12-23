@@ -11,7 +11,6 @@
     <head>
         <link rel="stylesheet" href="navbar.css?v=<?php echo time(); ?>">
         <link rel="stylesheet" href="homepage.css?v=<?php echo time(); ?>">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </head>
 
     <body>
