@@ -12,6 +12,7 @@ include("functions.php");
         $marketData = mysqli_fetch_array($result);
         if($marketData['Password'] == $password){
             $_SESSION['MID'] = $marketData['MID'];
+            unset($_SESSION['UID']);
             header("Location:homepage.php");
             die;
         }

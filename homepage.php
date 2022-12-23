@@ -49,7 +49,7 @@
                 $q = mysqli_query($con,$query);
                 while($row = mysqli_fetch_assoc($q)){
                     echo "<product>";
-                    echo "<img class='prodImg' src='./Image/{$row["Image"]}' ";
+                    echo "<img class='prodImg' src='./products/{$row["Image"]}' ";
                     echo "<br>";
                     echo "<prodName>";
                     echo $row['Name'];

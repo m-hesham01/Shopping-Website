@@ -15,7 +15,7 @@
 
     <body>
         <div style="width: 100%;">
-            <table class="nav">
+        <table class="nav">
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
                     <td class = "element"><a href="homepage.php">Home</a></td>

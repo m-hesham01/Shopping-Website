@@ -15,7 +15,7 @@
 
     <body>
         <div style="width: 100%;">
-            <table class="nav">
+        <table class="nav">
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
                     <td class = "element"><a href="homepage.php">Home</a></td>
@@ -50,8 +50,21 @@
                 $q = mysqli_query($con,$query);
                 while($row = mysqli_fetch_assoc($q)){
                     echo "<product>";
+                    echo "<img class='prodImg' src='./products/{$row["Image"]}' ";
+                    echo "<br>";
+                    echo "<prodName>";
                     echo $row['Name'];
-                    echo "<img class='prodImg' src='./image/{$row["Image"]}' ";
+                    echo "</prodName>";
+                    echo "<br>";
+                    echo "<prodPrice>";
+                    echo "EGP";
+                    echo $row['Price'];
+                    echo "</prodPrice>";
+                    echo "<br>";
+                    echo "<prodDesc>";
+                    echo $row['BriefDescription'];
+                    echo "</prodDesc>";
+                    echo "<br>";
                     echo "</product>";
                 }
                 ?>
