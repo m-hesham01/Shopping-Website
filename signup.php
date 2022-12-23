@@ -16,9 +16,22 @@ include("functions.php");
     $folder = 'image/';
 
     $query = "INSERT INTO user VALUES(NULL,'$username','$password','$email','$photo','$address','$number','$location')"; 
-    mysqli_query($con, $query);
+    $query2 = "SELECT * FROM user WHERE user.Email = '$email'";
+    $query3 = "SELECT * FROM user WHERE user.Username = '$username'";
+    $result = mysqli_query($con, $query2);
+    $result2 = mysqli_query($con, $query3);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $_SESSION['Error'] = "This account already exists , please login instead";
+        header("Location:register-user.php");
+    }elseif($result2 && mysqli_num_rows($result2) > 0){
+        $_SESSION['Error'] = "This account already exists , please login instead";
+        header("Location:register-user.php");
+    }
+    else{
+        $q = mysqli_query($con, $query);
 
-    move_uploaded_file($tmpPhoto, $folder . $photo);
-    header("Location:login.html");
+        move_uploaded_file($tmpPhoto, $folder . $photo);
+        header("Location:login.html");    
+    }
 
 ?>
