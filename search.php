@@ -46,7 +46,7 @@
             <div class="mainGrid">
                 <?php
                 $search = $_REQUEST['search'];
-                $query = "SELECT * FROM product WHERE product.Name LIKE '%$search%'";
+                $query = "SELECT * FROM product WHERE product.Name LIKE '%$search%' ORDER BY product.Price ASC";
                 $q = mysqli_query($con,$query);
                 while($row = mysqli_fetch_assoc($q)){
                     echo "<product>";

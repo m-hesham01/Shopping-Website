@@ -11,6 +11,7 @@
     <head>
         <link rel="stylesheet" href="navbar.css?v=<?php echo time(); ?>">
         <link rel="stylesheet" href="homepage.css?v=<?php echo time(); ?>">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -19,7 +20,19 @@
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
                     <td class = "element"><a href="homepage.php">Home</a></td>
-                    <td class = "element"><a href="brands.php">Brands</a></td>
+                    <td class = "element"><a href="Categories.php">Categories</a>
+                    <div class="dropdown-content">
+                        <?php
+                            $query = "SELECT DISTINCT Category  FROM product";
+                            $q = mysqli_query($con,$query);
+                            while($row = mysqli_fetch_assoc($q)){
+                                echo " <a href=' Brands.php?category=".$row['Category']." '> ";
+                                echo $category = $row['Category'];
+                                echo "</a>";
+                            }
+                        ?>
+                    </div>
+                    </td>
                     <td class = "element"><a href="#markets">Markets</a></td>
                     <td class = "element">
                         <a href="login.html">Profile</a>
