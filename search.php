@@ -42,7 +42,7 @@
         </div>
 
         <div class="mainBox">
-            <h1>View our most popular products</h1>
+            <h1>Showing results</h1>
             <div class="mainGrid">
                 <?php
                 $search = $_REQUEST['search'];
