@@ -16,6 +16,32 @@
     background-color: #777777;
 }
 
+.nav .element .dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+/* Links inside the dropdown */
+.nav .element .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.nav .element:hover .dropdown-content{
+    display: block;
+}
+
+.nav .element .dropdown-content .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
 .nav .logo{
     width : 50px;
     height: 80px;
