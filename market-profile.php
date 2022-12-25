@@ -76,7 +76,7 @@
                 echo "<br>";
                 echo "<br>";
                 echo "<br>";
-                echo "<a href='update-market-profile.php'>";
+                echo " <a href=' update-market-profile.php'> ";
                 echo "Update Profile";
                 echo "</a>";
                 echo "<br>";
