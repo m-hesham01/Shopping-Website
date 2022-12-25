@@ -30,8 +30,8 @@ $user_data = check_login($con);
         </div>
 
         <div class="regBox">
-            <h1>Update your market account</h1>
-            <form action="alterMarket.php" method="post" enctype="multipart/form-data" >
+            <h1>Update your account</h1>
+            <form action="alterProfile.php" method="post" enctype="multipart/form-data" >
                 <table>
                     <tr>
                         <td class="formField">Email*</td>
