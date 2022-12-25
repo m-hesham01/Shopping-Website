@@ -105,7 +105,7 @@
                 ?>
             </div>
 
-            <h1>Your Products</h1>
+            <h2>Your Products</h2>
             <div class="mainGrid">
                 <?php
                 $id = $user_data["MID"];
