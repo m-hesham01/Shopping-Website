@@ -3,7 +3,6 @@
     include ("connection.php");
     include ("functions.php");
     $user_data = check_login($con);
-
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +108,7 @@
             <div class="mainGrid">
                 <?php
                 $id = $user_data["MID"];
-                $query = "SELECT * FROM product WHERE market.MID = $id AND market.MID = marketproducts.MID AND product.PID = marketproducts.PID";
+                $query = "SELECT product.* FROM product, market, marketproducts WHERE market.MID = '$id' AND market.MID = marketproducts.MID AND product.PID = marketproducts.PID";
                 $q = mysqli_query($con,$query);
                 while($row = mysqli_fetch_assoc($q)){
                     echo "<product>";

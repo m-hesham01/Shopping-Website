@@ -18,7 +18,7 @@ $user_data = check_login($con);
     $folder = 'image/';
 
     if(empty($photo)){
-        $photo = $user_data['Image']; //TODO 
+        $photo = $user_data['Image'];
     }
     
 
