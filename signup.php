@@ -8,8 +8,7 @@ include("functions.php");
     $username = $_REQUEST['username'];
     $number = $_REQUEST['number'];
     $address = $_REQUEST['address'];
-    $location = $_REQUEST['location']; //TODO handle if location is not set
-    //TODO handle image
+    $location = $_REQUEST['location'];
 
     $photo = $_FILES['photo']['name'];
     $tmpPhoto = $_FILES['photo']['tmp_name'];

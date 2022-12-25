@@ -21,6 +21,13 @@ body{
     color: #474747;
 }
 
+.mainBox h2{
+    text-align: center;
+    font-size: 18px;
+    font-family: Arial Black, Arial, Helvetica, sans-serif;
+    color: #474747;
+}
+
 prodName{
     font-size: 14px;
     text-align: center;
@@ -52,5 +59,21 @@ prodDesc{
     width: 90%;
     height: 200px;
     object-fit: contain;
+}
+
+.mainBox input[type=submit]{
+    font-family: Arial Black, Arial, Helvetica, sans-serif;
+    background-color: rgb(79, 166, 79);
+    cursor: pointer;
+    font-size: 12px;
+    color: white;
+    width : 70px;
+    height: 25px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.mainBox input[type=submit]:hover{
+    background-color: rgb(55, 116, 55);
 }
 
