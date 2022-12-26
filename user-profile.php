@@ -34,7 +34,15 @@
                     </td>
                     <td class = "element"><a href="#markets">Markets</a></td>
                     <td class = "element">
-                        <a href="login.html">Profile</a>
+                    <?php
+                        if (isset($_SESSION['UID'])) {
+                            echo'<a href="user-profile.php">Profile</a>';
+                        } elseif (isset($_SESSION['MID'])){
+                            echo'<a href="market-profile.php">Profile</a>';
+                        } else{
+                            echo '<a href="loginUser.php">Profile</a>';                        
+                        }
+                    ?>
                         <?php 
                             if($user_data != false){
                                 echo " <img class='pfp' src='./image/{$user_data["Image"]}' ";

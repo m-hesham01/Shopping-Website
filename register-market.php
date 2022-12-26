@@ -15,7 +15,15 @@ session_start();
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
                     <td class = "element"><a href="homepage.php">Home</a></td>
                     <td class = "element"><a href="#markets">Markets</a></td>
-                    <td class = "element"><a href="login.html">Profile</a></td>
+                    <td class = "element"> <?php
+                        if (isset($_SESSION['UID'])) {
+                            echo'<a href="user-profile.php">Profile</a>';
+                        } elseif (isset($_SESSION['MID'])){
+                            echo'<a href="market-profile.php">Profile</a>';
+                        } else{
+                            echo '<a href="loginUser.php">Profile</a>';                        
+                        }
+                    ?></td>
                     <td class = "search">
                         <div>
                             <input type="text" placeholder="What are you looking for?" name="search" id="search">
