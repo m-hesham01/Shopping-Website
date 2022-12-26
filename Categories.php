@@ -15,11 +15,23 @@
 
     <body>
         <div style="width: 100%;">
-        <table class="nav">
+            <table class="nav">
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
                     <td class = "element"><a href="homepage.php">Home</a></td>
-                    <td class = "element"><a href="Categories.php">Categories</a></td>
+                    <td class = "element"><a href="Categories.php">Categories</a>
+                    <div class="dropdown-content">
+                        <?php
+                            $query = "SELECT DISTINCT Category  FROM product";
+                            $q = mysqli_query($con,$query);
+                            while($row = mysqli_fetch_assoc($q)){
+                                echo " <a href=' Brands.php?category=".$row['Category']." '> ";
+                                echo $category = $row['Category'];
+                                echo "</a>";
+                            }
+                        ?>
+                    </div>
+                    </td>
                     <td class = "element"><a href="#markets">Markets</a></td>
                     <td class = "element">
                     <?php
@@ -49,36 +61,17 @@
             </table>
         </div>
 
+
         <div class="mainBox">
-            <?php $brand = $_REQUEST['brand']; ?>
-            <h1>
-            <?php
-            echo "View best products from ";
-            echo $brand;
-            ?>
-            </h1>
+            <h1>Categories</h1>
             <div class="mainGrid">
                 <?php
-                $query = "SELECT * FROM product WHERE Brand = '$brand'";
+                $query = "SELECT DISTINCT Category  FROM product";
                 $q = mysqli_query($con,$query);
                 while($row = mysqli_fetch_assoc($q)){
-                    echo "<product>";
-                    echo "<img class='prodImg' src='./products/{$row["Image"]}' ";
-                    echo "<br>";
-                    echo "<prodName>";
-                    echo $row['Name'];
-                    echo "</prodName>";
-                    echo "<br>";
-                    echo "<prodPrice>";
-                    echo "EGP";
-                    echo $row['Price'];
-                    echo "</prodPrice>";
-                    echo "<br>";
-                    echo "<prodDesc>";
-                    echo $row['BriefDescription'];
-                    echo "</prodDesc>";
-                    echo "<br>";
-                    echo "</product>";
+                    echo " <a href=' Brands.php?category=".$row['Category']." '> ";
+                    echo $category = $row['Category'];
+                    echo "</a>";
                 }
                 ?>
             </div>

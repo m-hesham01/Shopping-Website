@@ -13,7 +13,7 @@ include("functions.php");
         if($marketData['Password'] == $password){
             $_SESSION['MID'] = $marketData['MID'];
             unset($_SESSION['UID']);
-            header("Location:homepage.php");
+            header("Location:market-profile.php");
             die;
         }
         else{

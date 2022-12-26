@@ -18,7 +18,7 @@
             <table class="nav">
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
-                    <td class = "element"><a href="homepage.php">Home</a></td>
+                    <td class = "element"><a href="homepage.php">Proucts</a></td>
                     <td class = "element"><a href="Categories.php">Categories</a>
                     <div class="dropdown-content">
                         <?php
@@ -65,7 +65,7 @@
             <h1>View our most popular products</h1>
             <div class="mainGrid">
                 <?php
-                $query = "SELECT * FROM product";
+                $query = "SELECT * FROM product ORDER BY product.Quantity DESC";
                 $q = mysqli_query($con,$query);
                 while($row = mysqli_fetch_assoc($q)){
                     echo "<product>";
