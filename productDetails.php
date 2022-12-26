@@ -63,33 +63,71 @@
 
         <div class="mainBox">
             <h1>View our most popular products</h1>
-            <div class="mainGrid">
                 <?php
-                $query = "SELECT * FROM product";
+                $PID = $_REQUEST['PID'];
+                $query = "SELECT * FROM product WHERE PID = '$PID'";
                 $q = mysqli_query($con,$query);
-                while($row = mysqli_fetch_assoc($q)){
+                $row2 = mysqli_fetch_assoc($q);
                     echo "<product>";
-                    echo "<img class='prodImg' src='./products/{$row["Image"]}' ";
+                    echo "<img class='prodImg' src='./products/{$row2["Image"]}' ";
                     echo "<br>";
-                    echo "<a href='productDetails.php?PID={$row["PID"]}'>";
+                    echo "<br>";
                     echo "<prodName>";
-                    echo $row['Name'];
+                    echo $row2['Name'];
                     echo "</prodName>";
-                    echo '</a>';
                     echo "<br>";
                     echo "<prodPrice>";
                     echo "EGP";
-                    echo $row['Price'];
+                    echo $row2['Price'];
                     echo "</prodPrice>";
                     echo "<br>";
                     echo "<prodDesc>";
-                    echo $row['BriefDescription'];
+                    echo $row2['BriefDescription'];
                     echo "</prodDesc>";
                     echo "<br>";
-                    echo "</product>";
+                    echo $row2['FullDescription'];
+                    echo "</prodDesc>";
+                    echo "<br>";
+                echo "<form method='post' action=''>";
+                echo '<select name="quantity" id="qunatity">';
+                $query = "SELECT Quantity from product where PID = '$PID'";
+                $q = mysqli_query($con,$query);
+                $row = mysqli_fetch_array($q);
+                $i =1;
+                $quantity = $row['Quantity'];
+                while ($i <= $quantity){
+                    echo "<option value='$i'>$i</option>";
+                    $i++;
+                }
+                $num = $_POST['quantity'];
+                echo '
+                    </select>
+                    <br>
+                    </product>
+                    ';
+                    echo '
+
+                        <input type="submit" name="cart"
+                        value="Add to cart"/>
+                        <input type="submit" name="wishList"
+                        value="Add to wish list"/>
+                    </form>
+                    ';
+                
+                if(isset($_POST['cart'])) {
+                    $UID = $user_data['UID'];
+                    echo "Product added to cart";
+                    $price = $row2['Price'];
+                    $query = "INSERT INTO cart VALUES (NULL,'$UID','$PID', '$num', '$price')";
+                    $q = mysqli_query($con,$query);
+                }
+                if(isset($_POST['wishList'])) {
+                    $UID = $user_data['UID'];
+                    $query = "INSERT INTO likedproducts VALUES (NULL,'$UID','$PID')";
+                    $q = mysqli_query($con,$query);
+                    echo "Product added to wish list";
                 }
                 ?>
-            </div>
         </div>
 
     </body>
