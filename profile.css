@@ -33,3 +33,18 @@ body{
     color: rgb(192, 20, 20);
     text-decoration: none;
 }
+
+.profileGrid input[type=submit]{
+    font-family: Arial Black, Arial, Helvetica, sans-serif;
+    background-color: rgb(192, 20, 20);
+    cursor: pointer;
+    font-size: 12px;
+    color: white;
+    width : 70px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.profileGrid input[type=submit]:hover{
+    background-color: rgb(125, 13, 13);
+}
