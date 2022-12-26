@@ -55,6 +55,12 @@ prodDesc{
     align-items: center;
 }
 
+.mainGrid a{
+    text-align: center;
+    font-size: 18px;
+    font-family: Arial Black, Arial, Helvetica, sans-serif;
+    color: rgb(192, 20, 20);
+}
 .prodImg{
     width: 100%;
     height: 200px;
