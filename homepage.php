@@ -65,7 +65,7 @@
             <h1>View our most popular products</h1>
             <div class="mainGrid">
                 <?php
-                $query = "SELECT * FROM product";
+                $query = "SELECT * FROM product ORDER BY product.Quantity DESC";
                 $q = mysqli_query($con,$query);
                 while($row = mysqli_fetch_assoc($q)){
                     echo "<product>";
