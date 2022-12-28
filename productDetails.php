@@ -10,15 +10,15 @@
 <html>
     <head>
         <link rel="stylesheet" href="navbar.css?v=<?php echo time(); ?>">
-        <link rel="stylesheet" href="homepage.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="productdetails.css?v=<?php echo time(); ?>">
     </head>
 
     <body>
-        <div style="width: 100%;">
+    <div style="width: 100%;">
             <table class="nav">
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
-                    <td class = "element"><a href="homepage.php">Home</a></td>
+                    <td class = "element"><a href="homepage.php">Products</a></td>
                     <td class = "element"><a href="Categories.php">Categories</a>
                     <div class="dropdown-content">
                         <?php
@@ -62,16 +62,13 @@
         </div>
 
         <div class="mainBox">
-            <h1>View our most popular products</h1>
+            <div class="prodGrid">
                 <?php
                 $PID = $_REQUEST['PID'];
                 $query = "SELECT * FROM product WHERE PID = '$PID'";
                 $q = mysqli_query($con,$query);
                 $row2 = mysqli_fetch_assoc($q);
-                    echo "<product>";
-                    echo "<img class='prodImg' src='./products/{$row2["Image"]}' ";
-                    echo "<br>";
-                    echo "<br>";
+                    echo "<element>";
                     echo "<prodName>";
                     echo $row2['Name'];
                     echo "</prodName>";
@@ -88,36 +85,33 @@
                     echo $row2['FullDescription'];
                     echo "</prodDesc>";
                     echo "<br>";
-                echo "<form method='post' action=''>";
-                echo '<select name="quantity" id="qunatity">';
-                $query = "SELECT Quantity from product where PID = '$PID'";
-                $q = mysqli_query($con,$query);
-                $row = mysqli_fetch_array($q);
-                $i =1;
-                $quantity = $row['Quantity'];
-                while ($i <= $quantity){
-                    echo "<option value='$i'>$i</option>";
-                    $i++;
-                }
-                $num = $_POST['quantity'];
-                echo '
-                    </select>
-                    <br>
-                    </product>
-                    ';
+                    echo "<form method='post' action=''>";
+                    echo "<select name='quantity' id='qunatity'>";
+                    $query = "SELECT Quantity from product where PID = '$PID'";
+                    $q = mysqli_query($con,$query);
+                    $row = mysqli_fetch_array($q);
+                    $i =1;
+                    $quantity = $row['Quantity'];
+                    while ($i <= $quantity){
+                        echo "<option value='$i'>$i</option>";
+                        $i++;
+                    }
+                    $num = $_POST['quantity'];
+                    echo "</select>";
+                    echo "<br>";
                     echo '
 
-                        <input type="submit" name="cart"
-                        value="Add to cart"/>
-                        <input type="submit" name="wishList"
-                        value="Like"/>
-                    </form>
-                    ';
+                    <input type="submit" name="cart"
+                    value="Add to cart"/>
+                    <input type="submit" name="wishList"
+                    value="Like"/>
+                </form>
+                ';
                 
                 if(isset($_POST['cart'])) {
                     $UID = $user_data['UID'];
                     echo "Product added to cart";
-                    $price = $row2['Price'];
+                    $price = $row2['Price']*$num;
                     $query = "INSERT INTO cart VALUES (NULL,'$UID','$PID', '$num', '$price')";
                     $q = mysqli_query($con,$query);
                 }
@@ -127,7 +121,12 @@
                     $q = mysqli_query($con,$query);
                     echo "Product added to wish list";
                 }
+                echo "</element>";
+                echo "<element>";
+                echo "<img class='prodImg' src='./products/{$row2["Image"]}' ";
+                echo "</element>";
                 ?>
+            </div>
         </div>
 
     </body>

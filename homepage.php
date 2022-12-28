@@ -18,7 +18,7 @@
             <table class="nav">
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
-                    <td class = "element"><a href="homepage.php">Proucts</a></td>
+                    <td class = "element"><a href="homepage.php">Products</a></td>
                     <td class = "element"><a href="Categories.php">Categories</a>
                     <div class="dropdown-content">
                         <?php

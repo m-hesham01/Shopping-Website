@@ -7,7 +7,7 @@
 
 
 .nav .element{
-    width : 50px;
+    width : 40px;
     height: 100%;
     vertical-align: middle;
     text-align: center;
@@ -44,7 +44,7 @@
 
 .nav .logo{
     width : 50px;
-    height: 80px;
+    height: 100%;
     vertical-align: middle;
 }
 .nav .logo img{
@@ -58,7 +58,7 @@
     text-decoration: none;
     color: white;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .nav .search{
