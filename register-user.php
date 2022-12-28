@@ -9,13 +9,27 @@ session_start();
             </head>
 
             <body>
-                <div style="width: 100%;">
-                    <table class="nav">
-                        <tr>
-                            <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
-                            <td class = "element"><a href="homepage.php">Home</a></td>
-                            <td class = "element"><a href="#markets">Markets</a></td>
-                            <td class = "element"> <?php
+            <div style="width: 100%;">
+            <table class="nav">
+                <tr>
+                    <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
+                    <td class = "element"><a href="homepage.php">Products</a></td>
+                    <td class = "element"><a href="Categories.php">Categories</a>
+                    <div class="dropdown-content">
+                        <?php
+                            $query = "SELECT DISTINCT Category  FROM product";
+                            $q = mysqli_query($con,$query);
+                            while($row = mysqli_fetch_assoc($q)){
+                                echo " <a href=' Brands.php?category=".$row['Category']." '> ";
+                                echo $category = $row['Category'];
+                                echo "</a>";
+                            }
+                        ?>
+                    </div>
+                    </td>
+                    <td class = "element"><a href="#markets">Markets</a></td>
+                    <td class = "element">
+                    <?php
                         if (isset($_SESSION['UID'])) {
                             echo'<a href="user-profile.php">Profile</a>';
                         } elseif (isset($_SESSION['MID'])){
@@ -23,16 +37,24 @@ session_start();
                         } else{
                             echo '<a href="loginUser.php">Profile</a>';                        
                         }
-                    ?></td>
-                            <td class = "search">
-                                <div>
-                                    <input type="text" placeholder="What are you looking for?" name="search" id="search">
-                                    <button type="submit" name="search-button"><img src="search.png" alt="GO!"></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                    ?>
+                        <?php 
+                            if($user_data != false){
+                                echo " <img class='pfp' src='./image/{$user_data["Image"]}' ";
+                            }else{
+                                echo " <img class='pfp' src='./image/user.png' ";
+                            }
+                        ?>
+                    </td>
+                    <td class = "search">
+                        <form action="search.php" method="get">
+                            <input type="text" placeholder="What are you looking for?" name="search" method="post">
+                            <button type="submit"><img src="search.png" alt="GO!"></button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
                 <div class="regBox">
                     <h1>Create new user account</h1>

@@ -5,11 +5,13 @@
     $user_data = check_login($con);
 
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="navbar.css">
-        <link rel="stylesheet" href="register.css">
+        <link rel="stylesheet" href="navbar.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="homepage.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="profile.css?v=<?php echo time(); ?>">
     </head>
 
     <body>
@@ -59,35 +61,49 @@
                 </tr>
             </table>
         </div>
-
-        <div class="regBox">
-            <h1>Login to your account</h1>
-            <form action="login.php" method="post">
-                <table>
-                    <tr>
-                        <td class="formField">Email</td>
-                        <td class="formInput">
-                            <input type="email" name="email" id="email" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="formField">Password</td>
-                        <td class="formInput">
-                            <input type="password" name="password" id="password" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="formButton">
-                            <input type="submit" name="login-button" id="login-button" value="Log-in">
-                        </td>
-                    </tr>
-                </table>
-            </form>
-            <p>Not a user? <a href="loginMarket2.php">Log in as a market</a></p>
-            <ul>
-                <li><a href="register-user.php">Create User Account</a></li>
-                <li><a href="register-market.php">Create Market Account</a></li>
-            </ul>
+        
+        <div class="mainBox">
+        <h1>Your Orders</h1>
+            <div class="mainGrid">
+                <?php
+                $id = $user_data["UID"];
+                $query = "SELECT product.*, purchasedproducts.* FROM product, purchasedproducts WHERE purchasedproducts.UID = '$id' AND product.PID = purchasedproducts.PID";
+                $q = mysqli_query($con,$query);
+                while($row = mysqli_fetch_assoc($q)){
+                    echo "<product>";
+                    echo "<img class='prodImg' src='./products/{$row["Image"]}' ";
+                    echo "<br>";
+                    echo "<a href='productDetails.php?PID={$row["PID"]}'>";
+                    echo "<prodName>";
+                    echo $row['Name'];
+                    echo "</prodName>";
+                    echo "</a>";
+                    echo "<br>";
+                    echo "<prodName>";
+                    echo "Quantity: ";
+                    echo "</prodName>";
+                    echo "<prodName>";
+                    echo $row['purchasedQuantity'];
+                    echo "</prodName>";
+                    echo "<br>";
+                    echo "<prodPrice>";
+                    echo "EGP";
+                    echo $row['Amount'];
+                    echo "</prodPrice>";
+                    echo "<br>";
+                    echo "<prodDesc>";
+                    if($row['Arrived']== 0){
+                        echo "Order being processed";
+                    }
+                    else{
+                        echo"Delivered";
+                    }
+                    echo "</prodDesc>";
+                    echo "<br>";
+                    echo "</product>";
+                }
+                ?>
+            </div>
         </div>
     </body>
 </html>

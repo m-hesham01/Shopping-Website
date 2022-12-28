@@ -16,11 +16,11 @@
     </head>
 
     <body>
-        <div style="width: 100%;">
+    <div style="width: 100%;">
             <table class="nav">
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
-                    <td class = "element"><a href="homepage.php">Home</a></td>
+                    <td class = "element"><a href="homepage.php">Products</a></td>
                     <td class = "element"><a href="Categories.php">Categories</a>
                     <div class="dropdown-content">
                         <?php
@@ -62,7 +62,6 @@
                 </tr>
             </table>
         </div>
-
         
         <div class="mainBox">
             <?php

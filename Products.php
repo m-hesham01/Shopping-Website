@@ -14,12 +14,24 @@
     </head>
 
     <body>
-        <div style="width: 100%;">
-        <table class="nav">
+    <div style="width: 100%;">
+            <table class="nav">
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
-                    <td class = "element"><a href="homepage.php">Home</a></td>
-                    <td class = "element"><a href="Categories.php">Categories</a></td>
+                    <td class = "element"><a href="homepage.php">Products</a></td>
+                    <td class = "element"><a href="Categories.php">Categories</a>
+                    <div class="dropdown-content">
+                        <?php
+                            $query = "SELECT DISTINCT Category  FROM product";
+                            $q = mysqli_query($con,$query);
+                            while($row = mysqli_fetch_assoc($q)){
+                                echo " <a href=' Brands.php?category=".$row['Category']." '> ";
+                                echo $category = $row['Category'];
+                                echo "</a>";
+                            }
+                        ?>
+                    </div>
+                    </td>
                     <td class = "element"><a href="#markets">Markets</a></td>
                     <td class = "element">
                     <?php
