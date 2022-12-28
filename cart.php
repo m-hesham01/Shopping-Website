@@ -62,13 +62,13 @@
         </div>
 
         <div class="mainBox">
-            <h1> Wishlist </h1>
+            <h1> Cart </h1>
             <div class="profileGrid"> 
                 <element>
                     <table>
                         <?php
                             $id = $user_data["UID"]; 
-                            $query = "SELECT DISTINCT product.* FROM product, user, likedproducts WHERE user.UID = '$id' AND user.UID = likedproducts.UID AND product.PID = likedproducts.PID";
+                            $query = "SELECT DISTINCT product.* FROM product, user, cart WHERE user.UID = '$id' AND user.UID = cart.UID AND product.PID = cart.PID";
                             $q = mysqli_query($con,$query);
                             while($row = mysqli_fetch_assoc($q)){
                                 $pid = $row['PID'];
@@ -87,14 +87,7 @@
                                 echo "</prodPrice>";
                                 echo "</td>";
                                 echo "<td>";
-                                echo "<form action='move-to-cart.php' method='post'>";
-                                echo "<input type='hidden' name='uid' value='$id'>";
-                                echo "<input type='hidden' name='pid' value='$pid'>";
-                                echo "<input type='hidden' name='price' value='$price'>";
-                                echo "<input type='submit' name='submit' value='Move to Cart'>";
-                                echo "</form>";
-                                echo "<br>";
-                                echo "<form action='remove-product-wishlist.php' method='post'>";
+                                echo "<form action='remove-product-cart.php' method='post'>";
                                 echo "<input type='hidden' name='uid' value='$id'>";
                                 echo "<input type='hidden' name='pid' value='$pid'>";
                                 echo "<input type='submit' name='submit' value='Remove'>";
@@ -104,6 +97,9 @@
                             }
                         ?>
                     </table>
+                </element>
+
+                <element>
                 </element>
             </div>
         </div>

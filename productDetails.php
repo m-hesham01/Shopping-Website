@@ -110,7 +110,7 @@
                         <input type="submit" name="cart"
                         value="Add to cart"/>
                         <input type="submit" name="wishList"
-                        value="Add to wish list"/>
+                        value="Like"/>
                     </form>
                     ';
                 
