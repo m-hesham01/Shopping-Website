@@ -14,7 +14,7 @@
     </head>
 
     <body>
-        <<div style="width: 100%;">
+        <div style="width: 100%;">
             <table class="nav">
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
