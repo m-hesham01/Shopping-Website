@@ -3,7 +3,6 @@
     include ("connection.php");
     include ("functions.php");
     $user_data = check_login($con);
-
 ?>
 
 <!DOCTYPE html>
@@ -15,24 +14,12 @@
 
     <body>
         <div style="width: 100%;">
-            <table class="nav">
+        <table class="nav">
                 <tr>
                     <td class = "logo"><img src="logo.png" alt="BUYBUY"></td>
-                    <td class = "element"><a href="homepage.php">Proucts</a></td>
-                    <td class = "element"><a href="Categories.php">Categories</a>
-                    <div class="dropdown-content">
-                        <?php
-                            $query = "SELECT DISTINCT Category  FROM product";
-                            $q = mysqli_query($con,$query);
-                            while($row = mysqli_fetch_assoc($q)){
-                                echo " <a href=' Brands.php?category=".$row['Category']." '> ";
-                                echo $category = $row['Category'];
-                                echo "</a>";
-                            }
-                        ?>
-                    </div>
-                    </td>
-                    <td class = "element"><a href="markets.php">Markets</a></td>
+                    <td class = "element"><a href="homepage.php">Home</a></td>
+                    <td class = "element"><a href="Categories.php">Categories</a></td>
+                    <td class = "element"><a href="#markets">Markets</a></td>
                     <td class = "element">
                     <?php
                         if (isset($_SESSION['UID'])) {
@@ -62,35 +49,24 @@
         </div>
 
         <div class="mainBox">
-            <h1>View our most popular products</h1>
             <div class="mainGrid">
                 <?php
-                $query = "SELECT * FROM product ORDER BY product.Quantity DESC";
+                $query = "SELECT * FROM market ";
                 $q = mysqli_query($con,$query);
                 while($row = mysqli_fetch_assoc($q)){
                     echo "<product>";
-                    echo "<img class='prodImg' src='./products/{$row["Image"]}' ";
+                    echo "<img class='prodImg' src='./image/{$row["Image"]}' ";
                     echo "<br>";
-                    echo "<a href='productDetails.php?PID={$row["PID"]}'>";
+                    echo "<a href='marketDetails.php?MID={$row["MID"]}'>";
                     echo "<prodName>";
-                    echo $row['Name'];
+                    echo $row['Username'];
                     echo "</prodName>";
                     echo '</a>';
-                    echo "<br>";
-                    echo "<prodPrice>";
-                    echo "EGP";
-                    echo $row['Price'];
-                    echo "</prodPrice>";
-                    echo "<br>";
-                    echo "<prodDesc>";
-                    echo $row['BriefDescription'];
-                    echo "</prodDesc>";
                     echo "<br>";
                     echo "</product>";
                 }
                 ?>
             </div>
         </div>
-
     </body>
 </html>

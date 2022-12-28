@@ -60,9 +60,11 @@
                     echo "<product>";
                     echo "<img class='prodImg' src='./products/{$row["Image"]}' ";
                     echo "<br>";
+                    echo "<a href='productDetails.php?PID={$row["PID"]}'>";
                     echo "<prodName>";
                     echo $row['Name'];
                     echo "</prodName>";
+                    echo '</a>';
                     echo "<br>";
                     echo "<prodPrice>";
                     echo "EGP";
