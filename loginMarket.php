@@ -17,10 +17,10 @@ include("functions.php");
             die;
         }
         else{
-            header("Location:loginMarket.php");
+            header("Location:loginMarket2.php");
         }
     }
     else{
-        header("Location:loginMarket.php");
+        header("Location:loginMarket2.php");
     }
 ?>
