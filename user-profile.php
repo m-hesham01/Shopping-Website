@@ -107,6 +107,10 @@
                 echo "View Orders";
                 echo "</a>";
                 echo "<br>";
+                echo "<a href='likedmarkets.php'>";
+                echo "View Liked Markets";
+                echo "</a>";
+                echo "<br>";
                 echo "</element>";
 
                 echo "<element>";
