@@ -33,20 +33,22 @@
                         ?>
                     </div>
                     </td>
-                    <td class = "element"><a href="#markets">Markets</a></td>
-                    <td class = "element">
+                    <td class = "element"><a href="markets.php">Markets</a></td>
+                    <td class = "element" style="width:50px">
                     <?php
                         if (isset($_SESSION['UID'])) {
                             echo'<a href="user-profile.php">Profile</a>';
+                            echo "<a href='loginUser.php'>.</a>";
                         } elseif (isset($_SESSION['MID'])){
                             echo'<a href="market-profile.php">Profile</a>';
+                            echo "<a href='loginUser.php'>.</a>";
                         } else{
                             echo '<a href="loginUser.php">Profile</a>';                        
                         }
                     ?>
                         <?php 
                             if($user_data != false){
-                                echo " <img class='pfp' src='./image/{$user_data["Image"]}' ";
+                                echo " <img class='pfp' src='./image/{$user_data["Image"]}'"; 
                             }else{
                                 echo " <img class='pfp' src='./image/user.png' ";
                             }
@@ -61,6 +63,7 @@
                 </tr>
             </table>
         </div>
+
         
         <div class="mainBox">
         <h1>Your Orders</h1>
