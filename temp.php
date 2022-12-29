@@ -1,6 +1,16 @@
 <div id="paypal-button-container"></div>
         <!-- Sample PayPal credentials (client-id) are included -->
-        <script src="https://www.paypal.com/sdk/js?client-id=AQx3d2p0npm-KtFfelFg6kRtx4LX4X9t6whlz50ZKgcGaRRyDsvfs5DKzEyOHgGWlbgW_59doJ8Aql8h&currency=USD&intent=capture&enable-funding=venmo" data-sdk-integration-source="integrationbuilder"></script>
+        <?php
+        $src1 = "https://www.paypal.com/sdk/js?client-id=";
+        $src2 = "AQx3d2p0npm-KtFfelFg6kRtx4LX4X9t6whlz50ZKgcGaRRyDsvfs5DKzEyOHgGWlbgW_59doJ8Aql8h";
+        $src3 ="&currency=USD&intent=capture&enable-funding=venmo";
+        $finalString = $src1 . $src2 . $src3;
+        $src= htmlspecialchars($finalString);
+        echo ($src);
+        ?>
+        <script src= <?php echo($src) ?>
+       
+        data-sdk-integration-source="integrationbuilder"></script>
         <script>
           const paypalButtonsComponent = paypal.Buttons({
               // optional styling for buttons
