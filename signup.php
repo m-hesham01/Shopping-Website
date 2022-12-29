@@ -30,7 +30,7 @@ include("functions.php");
         $q = mysqli_query($con, $query);
 
         move_uploaded_file($tmpPhoto, $folder . $photo);
-        header("Location:login.html");    
+        header("Location:loginUser.php");    
     }
 
 ?>

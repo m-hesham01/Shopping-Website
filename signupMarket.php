@@ -30,6 +30,6 @@ include("functions.php");
     else{
         mysqli_query($con, $query);
         move_uploaded_file($tmpPhoto, $folder . $photo);
-        header("Location:loginMarket.html");
+        header("Location:loginMarket2.php");
     }
 ?>
