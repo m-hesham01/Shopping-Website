@@ -140,7 +140,7 @@
                             <td><heading>Total: EGP</heading>
 
                         <heading>";
-                        echo $cartSum + 25;
+                        echo $finalCartSum = $cartSum + 25;
                         echo "
                         </heading>
                         </td>
@@ -149,7 +149,7 @@
                             <td>
                                 <form action='move-to-orders.php' method='post'>
                                 <input type='hidden' name='uid' value='$id'>
-                                <input class='orderBtn' type='submit' name='order' value='Order Now'>
+                                <input class='orderBtn' type='submit' name='order' id='order' value='Order Now'>
                             </td>
                         </tr>
                     </table>
@@ -166,8 +166,17 @@
             </div>
             <div id="paypal-button-container"></div>
         <!-- Sample PayPal credentials (client-id) are included -->
-        <script src="https://www.paypal.com/sdk/js?client-id=AQx3d2p0npm-KtFfelFg6kRtx4LX4X9t6whlz50ZKgcGaRRyDsvfs5DKzEyOHgGWlbgW_59doJ8Aql8h&currency=USD&intent=capture&enable-funding=venmo" data-sdk-integration-source="integrationbuilder"></script>
+        <?php
+        $src1 = "https://www.paypal.com/sdk/js?client-id=";
+        $src2 = "AQx3d2p0npm-KtFfelFg6kRtx4LX4X9t6whlz50ZKgcGaRRyDsvfs5DKzEyOHgGWlbgW_59doJ8Aql8h"; //paypal ID
+        $src3 ="&currency=USD&intent=capture&enable-funding=venmo";
+        $finalString = $src1 . $src2 . $src3;
+        $src= htmlspecialchars($finalString);
+        ?>
+        <script src= <?php echo($src) ?>
+        data-sdk-integration-source="integrationbuilder"></script>
         <script>
+            var my_var = <?php echo json_encode($finalCartSum); ?>;
           const paypalButtonsComponent = paypal.Buttons({
               // optional styling for buttons
               // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
@@ -185,7 +194,7 @@
                       purchase_units: [
                           {
                               amount: {
-                                  value: "50"
+                                  value: my_var
                               }
                           }
                       ]
@@ -199,9 +208,9 @@
                   const captureOrderHandler = (details) => {
                       const payerName = details.payer.name.given_name;
                       console.log('Transaction completed');
+                      document.querySelector('.orderBtn').click();
                   };
-
-                  return actions.order.capture().then(captureOrderHandler);
+                return actions.order.capture().then(captureOrderHandler);
               },
 
               // handle unrecoverable errors
