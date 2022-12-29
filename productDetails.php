@@ -117,12 +117,14 @@
                     $price = $row2['Price']*$num;
                     $query = "INSERT INTO cart VALUES (NULL,'$UID','$PID', '$num', '$price')";
                     $q = mysqli_query($con,$query);
+                    header("Location:cart.php"); 
                 }
                 if(isset($_POST['wishList'])) {
                     $UID = $user_data['UID'];
                     $query = "INSERT INTO likedproducts VALUES (NULL,'$UID','$PID')";
                     $q = mysqli_query($con,$query);
                     echo "Product added to wish list";
+                    header("Location:wishlist.php"); 
                 }
                 echo "</element>";
                 echo "<element>";
